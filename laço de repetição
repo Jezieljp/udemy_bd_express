@@ -1,0 +1,2 @@
+for(var jeziel = 0;jeziel<10;jeziel++){
+... console.log(jeziel);}
