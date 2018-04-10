@@ -1,22 +1,7 @@
-// console.log("Ola Mundo");
-// Fazendo a conexão co servidor
-var express = require('express');
-var app = express();
-// Chamando o ejs serve para criar paginas html
-app.set('view engine', 'ejs');
+// modulo server exportando para o app
+var app = require('./config/server');
+app();
 
-app.get('/contato', function(req, resp){
-    // Pegando a pagina contatos
-    resp.render('site/contato');
-});
-
-app.get('/', function(req, resp){
-    resp.render('site/home');
-});
-
-app.listen(3000, function(){
-    console.log('ok funcionando na porta 3000');
-});
 
 // var server = http.createServer(function(req, res){
 //     var pagina = req.url;
