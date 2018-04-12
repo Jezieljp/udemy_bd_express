@@ -1,23 +1,30 @@
 // pegando meu modulo globalmente
-var clienteModel = require('../models/clienteModels')();
+var clienteController = require('../controllers/clientecontroller');
 
 
 // configurando as rotas
-module.exports = function(app){
-    app.get('/contato', function(req, resp){
+module.exports = function (app) {
+    app.get('/contato', function (req, resp) {
         // Pegando a pagina contatos
         resp.render('site/contato');
     });
-    
-    app.get('/', function(req, resp){
+
+    app.get('/', function (req, resp) {
 
         // enviando dados para views
-        var listaClientes = clienteModel.all();
-               resp.render('site/home', {clientes:listaClientes});//final do codigo
-    });    
+        clienteController.index(req, resp);        
 
-    app.get('/sobre', function(req, resp){
-        resp.render('site/sobre');
     });
+        //pegando apenas um dado do banco
+    app.get('/detelhe/:id', function (req, resp) {
+                console.log(req.params.id);
+        // enviando dados para views
+        //clienteController.show(req, resp);        
 
-};//agora va no arquivo serve e de um require 
+    });
+};
+
+    // app.get('/sobre', function (req, resp) {
+    //     resp.render('site/sobre');
+    // });
+//agora va no arquivo serve e de um require 
