@@ -12,14 +12,25 @@ module.exports = function (app) {
     app.get('/', function (req, resp) {
 
         // enviando dados para views
-        clienteController.index(req, resp);        
+        clienteController.index(req, resp);
 
     });
-        //pegando apenas um dado do banco
-    app.get('/detelhe/:id', function (req, resp) {
-                console.log(req.params.id);
+
+    //Criando rota para inserir dados no banco mysql server
+    app.post('/', function (req, resp) {
+
         // enviando dados para views
-        //clienteController.show(req, resp);        
+        clienteController.store(req, resp);
+
+    });
+
+
+
+    //rota  resp.redirect('/')pegando apenas um dado do banco
+    app.get('/detalhe/:id', function (req, resp) {
+        // console.log(req.params.id);
+        // enviando dados para views
+        clienteController.show(req,resp);
 
     });
 };

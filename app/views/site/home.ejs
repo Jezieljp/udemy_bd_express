@@ -11,14 +11,48 @@
 <!--criando uma variavel em javascript-->
 <% var jeziel = "Muito casando de tudo me ajude DEUS"%>
 
- <p><%= jeziel %></p><--exibindo o resultado da variavel no html-->
+ <p><%= jeziel %></p><!--exibindo o resultado da variavel no html-->
     <ul>
     <% for(var key in clientes){ %>
     <li><%= clientes[key].nome%></li>
     <li><%= clientes[key].email%></li>
 
-    <% } %>
-        
+    <% } %>        
     </ul>
+    <br>
+
+    <ul>
+    <% for(var key in clientes){ %>
+        <li>
+            <%= clientes[key].nome %> - <%= clientes[key].email %>
+        </li>
+    <% } %>
+    <ul>
+    <br>
+     
+    <% if(erros){ %>
+    <ul>
+    <% for(var key in erros){%>
+        <li>
+            <%= erros[key].msg %>
+        </li>
+        <% } %>
+    
+    </ul>
+    <% } %> 
+
+
+    <h1> FORMULARIO DE CONTATOS</h1>
+    <form action="/" method="post">
+    Nome:
+    <input type="text" name="nome" />
+    Email:
+    <input type="text" name="email" />
+
+    <input type="submit" value="Enviar" />
+        
+    </form>
+
+
 </body>
 </html> 
